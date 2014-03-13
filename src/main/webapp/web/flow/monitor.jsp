@@ -45,6 +45,11 @@ v:img{ position:relative;top:0;left:0;width:35px;height:35px}
 <script language="javascript">
   globalURL = "/<%=DOGlobals.URL%>/";
 </script>  
+<% if ("en".equals(DOGlobals.getValue("lang.local"))){ %>	
+<script type="text/javascript" src="<%=request.getContextPath()%>/web/default/js/main/lang_en.js"  ></script>
+<% }else{ %>
+<script type="text/javascript" src="<%=request.getContextPath()%>/web/default/js/main/lang_zh.js"  ></script>
+<% }%>
 <script type="text/javascript" 	src="<%=request.getContextPath()%>/web/default/js/main/main.js" ></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/web/default/js/main/platAjax.js"  ></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/web/default/js/main/raphael-min.js"  ></script>

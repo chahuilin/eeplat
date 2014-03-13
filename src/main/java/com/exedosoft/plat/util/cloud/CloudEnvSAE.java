@@ -33,19 +33,19 @@ public class CloudEnvSAE implements CloudEnv {
 	@Override
 	public String getDBName() {
 		// TODO Auto-generated method stub
-		return null;
+		return "app_" + SaeUserInfo.getAppName();
 	}
 
 	@Override
 	public String getDBHost() {
 		// TODO Auto-generated method stub
-		return null;
+		return "w.rdc.sae.sina.com.cn";
 	}
 
 	@Override
 	public String getDBPort() {
 		// TODO Auto-generated method stub
-		return null;
+		return "3307";
 	}
 
 	@Override

@@ -11,14 +11,12 @@
          	无法连接EEPlat AppShare服务器！请联系您的系统管理员或者直接联系<a href="mailto:contact@eeplat.com">EEPlat团队(contact@eeplat.com)</a>。
     </#if>
     
-    
-    
 	<#list data as ins>
 
         <li class="list_item">
             <div class="left">
                 <a href="">
-                    <img  border=0  width="72px" height="72px" src="${ins.map.image_path?default("web/default/images/180.jpg")}" ></a>
+                    <img  border=0  width="72px" height="72px" src="http://eeplatfile.oss.aliyuncs.com/${ins.map.image_path?default("web/default/images/180.jpg")}" ></a>
             </div>
             <dl class="list_content">
                 <dt>
@@ -42,6 +40,11 @@
                             ${ins.map.share_date?substring(0,ins.map.share_date?index_of(" "))} 发布</span>
                         <span class="sub_right_9">提供者：${ins.map.auth_user_name!}</span>
                     </div>
+                    <div class="font12">
+                       <span class="sub_seach_time">
+                     	 &nbsp;联系方式： ${ins.map.user_email!}
+                     	</span> 
+                     </div>
                 </dd>
             </dl>
             <div class="list_r_w">

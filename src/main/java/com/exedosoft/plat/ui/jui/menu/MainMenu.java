@@ -1,11 +1,8 @@
 package com.exedosoft.plat.ui.jui.menu;
 
-import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Random;
 
-import com.exedosoft.plat.bo.DOApplication;
 import com.exedosoft.plat.ui.DOIModel;
 import com.exedosoft.plat.ui.DOMenuModel;
 import com.exedosoft.plat.ui.jquery.menu.DOBaseMenu;

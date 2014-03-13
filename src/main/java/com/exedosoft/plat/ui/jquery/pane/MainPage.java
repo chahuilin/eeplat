@@ -4,6 +4,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.exedosoft.plat.DAOUtil;
+import com.exedosoft.plat.bo.DOResource;
 import com.exedosoft.plat.ui.DOIModel;
 import com.exedosoft.plat.ui.DOPaneModel;
 
@@ -37,6 +39,14 @@ public class MainPage extends TPaneTemplate {
 		if(pm.getResource()!=null){
 			resourceUrl = pm.getResource().getResourcePath();
 		}
+		
+		if("".equals(resourceUrl)){
+			DOResource   drs = DAOUtil.INSTANCE().getBySql(DOResource.class,"select * from do_resource where resourceName like 'workbenchjsp_%'");
+			if(drs!=null){
+				resourceUrl = drs.getResourcePath();
+			}
+		}
+		
 		data.put("resourceUrl", resourceUrl);
 		return data;
 	}

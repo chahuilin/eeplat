@@ -2116,3 +2116,54 @@ delete from do_bo where objuid=? [50200-149]
 01-22 11:43:30 jdbc[2]: exception
 org.h2.jdbc.JdbcSQLException: Timeout trying to lock table ; SQL statement:
 delete from do_bo where objuid=? [50200-149]
+03-08 12:16:45 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "A" not found; SQL statement:
+DELETE a  FROM DO_UI_MenuModel a LEFT JOIN  DO_UI_MenuModel b ON  a.parentuid = b.objuid WHERE a.parentuid IS NOT NULL AND b.objuid IS NULL [42102-149]
+03-08 12:16:45 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "A" not found; SQL statement:
+DELETE a  FROM DO_UI_MenuModel a LEFT JOIN  DO_UI_MenuModel b ON  a.parentuid = b.objuid WHERE a.parentuid IS NOT NULL AND b.objuid IS NULL [42102-149]
+03-08 12:16:45 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "A" not found; SQL statement:
+DELETE a  FROM DO_UI_MenuModel a LEFT JOIN  DO_UI_MenuModel b ON  a.parentuid = b.objuid WHERE a.parentuid IS NOT NULL AND b.objuid IS NULL [42102-149]
+03-08 12:16:45 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "A" not found; SQL statement:
+DELETE a  FROM DO_UI_MenuModel a LEFT JOIN  DO_UI_MenuModel b ON  a.parentuid = b.objuid WHERE a.parentuid IS NOT NULL AND b.objuid IS NULL [42102-149]
+03-08 12:16:45 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "A" not found; SQL statement:
+DELETE a  FROM DO_UI_MenuModel a LEFT JOIN  DO_UI_MenuModel b ON  a.parentuid = b.objuid WHERE a.parentuid IS NOT NULL AND b.objuid IS NULL [42102-149]
+03-08 12:16:45 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "A" not found; SQL statement:
+DELETE a  FROM DO_UI_MenuModel a LEFT JOIN  DO_UI_MenuModel b ON  a.parentuid = b.objuid WHERE a.parentuid IS NOT NULL AND b.objuid IS NULL [42102-149]
+03-08 12:16:46 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "A" not found; SQL statement:
+DELETE a  FROM DO_UI_MenuModel a LEFT JOIN  DO_UI_MenuModel b ON  a.parentuid = b.objuid WHERE a.parentuid IS NOT NULL AND b.objuid IS NULL [42102-149]
+03-08 12:16:46 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "A" not found; SQL statement:
+DELETE a  FROM DO_UI_MenuModel a LEFT JOIN  DO_UI_MenuModel b ON  a.parentuid = b.objuid WHERE a.parentuid IS NOT NULL AND b.objuid IS NULL [42102-149]
+03-08 12:16:46 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "A" not found; SQL statement:
+DELETE a  FROM DO_UI_MenuModel a LEFT JOIN  DO_UI_MenuModel b ON  a.parentuid = b.objuid WHERE a.parentuid IS NOT NULL AND b.objuid IS NULL [42102-149]
+03-08 12:16:46 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "A" not found; SQL statement:
+DELETE a  FROM DO_UI_MenuModel a LEFT JOIN  DO_UI_MenuModel b ON  a.parentuid = b.objuid WHERE a.parentuid IS NOT NULL AND b.objuid IS NULL [42102-149]
+03-08 12:16:46 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "A" not found; SQL statement:
+DELETE a  FROM DO_UI_MenuModel a LEFT JOIN  DO_UI_MenuModel b ON  a.parentuid = b.objuid WHERE a.parentuid IS NOT NULL AND b.objuid IS NULL [42102-149]
+03-08 12:16:46 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "A" not found; SQL statement:
+DELETE a  FROM DO_UI_MenuModel a LEFT JOIN  DO_UI_MenuModel b ON  a.parentuid = b.objuid WHERE a.parentuid IS NOT NULL AND b.objuid IS NULL [42102-149]
+03-08 12:16:47 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "A" not found; SQL statement:
+DELETE a  FROM DO_UI_MenuModel a LEFT JOIN  DO_UI_MenuModel b ON  a.parentuid = b.objuid WHERE a.parentuid IS NOT NULL AND b.objuid IS NULL [42102-149]
+03-08 12:16:47 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "A" not found; SQL statement:
+DELETE a  FROM DO_UI_MenuModel a LEFT JOIN  DO_UI_MenuModel b ON  a.parentuid = b.objuid WHERE a.parentuid IS NOT NULL AND b.objuid IS NULL [42102-149]
+03-08 12:16:47 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "A" not found; SQL statement:
+DELETE a  FROM DO_UI_MenuModel a LEFT JOIN  DO_UI_MenuModel b ON  a.parentuid = b.objuid WHERE a.parentuid IS NOT NULL AND b.objuid IS NULL [42102-149]
+03-08 12:16:47 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "A" not found; SQL statement:
+DELETE a  FROM DO_UI_MenuModel a LEFT JOIN  DO_UI_MenuModel b ON  a.parentuid = b.objuid WHERE a.parentuid IS NOT NULL AND b.objuid IS NULL [42102-149]
+03-08 12:16:47 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "A" not found; SQL statement:
+DELETE a  FROM DO_UI_MenuModel a LEFT JOIN  DO_UI_MenuModel b ON  a.parentuid = b.objuid WHERE a.parentuid IS NOT NULL AND b.objuid IS NULL [42102-149]

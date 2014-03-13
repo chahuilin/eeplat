@@ -54,9 +54,6 @@ public class GridListApps extends GridList {
 			data.put("needlogin",false);
 		}
 		
-
-	
-
 		
 		String callSelect =  "callType=sa&contextServiceName=eeplat_appshareinstall_findbyuserid&use_user_id=" +  shareUser.getUid() ;
 		List<BOInstance> installedData = getList(callSelect);

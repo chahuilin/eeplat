@@ -66,9 +66,8 @@ globalURL = "/<%=DOGlobals.URL%>/";
 </script>
 <link rel="icon" href="<%=request.getContextPath()%>/favicon.ico" type="image/x-icon" /> 
 <link rel="shortcut icon" href="<%=request.getContextPath()%>/favicon.ico" type="image/x-icon" /> 
-
-<link rel="stylesheet" href="<%=request.getContextPath()%>/web/default/css/compressed/all.css" type="text/css"/>
 <link rel="stylesheet" href="<%=request.getContextPath()%>/web/default/css/redmond/jquery-ui-1.10.3.custom.min.css" type="text/css" />
+<link rel="stylesheet" href="<%=request.getContextPath()%>/web/default/css/compressed/all.css" type="text/css"/>
 <link rel="stylesheet" href="<%=request.getContextPath()%>/web/default/js/jquery-plugin/metro/MetroJs.min.css" type="text/css"/>
 	
 <%=DOResource.getAllCssLink()%>

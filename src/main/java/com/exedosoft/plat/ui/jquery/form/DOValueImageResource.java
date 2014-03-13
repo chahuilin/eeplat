@@ -1,5 +1,8 @@
 package com.exedosoft.plat.ui.jquery.form;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+
 import com.exedosoft.plat.bo.BOInstance;
 import com.exedosoft.plat.bo.DOResource;
 import com.exedosoft.plat.ui.DOFormModel;
@@ -52,6 +55,19 @@ public class DOValueImageResource extends DOBaseForm implements DOIView {
 				}
 			}
 
+		}else{
+			if(value.indexOf(";")!=-1){
+				
+				try {
+					value =  "http://eeplatfile.oss.aliyuncs.com/"
+							+ URLEncoder.encode(value, "utf-8");
+				} catch (UnsupportedEncodingException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
+			}
+			
 		}
 
 		if (value != null) {

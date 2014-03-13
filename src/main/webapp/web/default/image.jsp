@@ -1,110 +1,79 @@
 ﻿<%@ page pageEncoding="UTF-8"%>
 <%@ page contentType="image/jpeg" import="java.awt.*,java.awt.image.*,java.util.*,javax.imageio.*" %>
-
-<%@ page import="java.util.List"%>
-
-<%@ page import="nl.captcha.Captcha"%>
-<%@ page import="nl.captcha.Captcha.Builder"%>
-<%@ page import="nl.captcha.backgrounds.BackgroundProducer"%>
-<%@ page import="nl.captcha.backgrounds.FlatColorBackgroundProducer"%>
-<%@ page import="nl.captcha.backgrounds.GradiatedBackgroundProducer"%>
-<%@ page import="nl.captcha.backgrounds.SquigglesBackgroundProducer"%>
-<%@ page import="nl.captcha.backgrounds.TransparentBackgroundProducer"%>
-<%@ page import="nl.captcha.gimpy.BlockGimpyRenderer"%>
-<%@ page import="nl.captcha.gimpy.DropShadowGimpyRenderer"%>
-<%@ page import="nl.captcha.gimpy.FishEyeGimpyRenderer"%>
-<%@ page import="nl.captcha.gimpy.RippleGimpyRenderer"%>
-<%@ page import="nl.captcha.gimpy.ShearGimpyRenderer"%>
-<%@ page import="nl.captcha.servlet.CaptchaServletUtil"%>
-<%@ page import="nl.captcha.servlet.SimpleCaptchaServlet"%>
-<%@ page import="nl.captcha.text.producer.ChineseTextProducer"%>
-<%@ page import="nl.captcha.text.producer.DefaultTextProducer"%>
-<%@ page import="nl.captcha.text.renderer.ColoredEdgesWordRenderer"%>
-<%@ page import="nl.captcha.text.renderer.DefaultWordRenderer"%>
-<%@ page import="nl.captcha.text.renderer.WordRenderer"%>
+<%!
+Color getRandColor(int fc,int bc){//给定范围获得随机颜色
+         Random random = new Random();
+         if(fc>255) fc=255;
+         if(bc>255) bc=255;
+         int r=fc+random.nextInt(bc-fc);
+         int g=fc+random.nextInt(bc-fc);
+         int b=fc+random.nextInt(bc-fc);
+         return new Color(255,255,255);
+         }
+%>
 <%
+//设置页面不缓存
+response.setHeader("Pragma","No-cache");
+response.setHeader("Cache-Control","no-cache");
+response.setDateHeader("Expires", 0);
+
+// 在内存中创建图象
+int width=75, height=25;
+BufferedImage image = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
+
+// 获取图形上下文
+Graphics g = image.getGraphics();
+
+//生成随机类
+Random random = new Random();
+
+// 设定背景色
+g.setColor(getRandColor(200,250));
+g.fillRect(0, 0, width, height);
+
+//设定字体
+g.setFont(new Font("Times New Roman",Font.ROMAN_BASELINE,22));
 
 
 
-Builder builder=new Captcha.Builder(80, 28);
-//增加边框
-builder   .addBorder();
-//是否增加干扰线条
-builder.addNoise();
-//----------------自定义字体大小-----------
-//自定义设置字体颜色和大小 最简单的效果 多种字体随机显示
-List<Font> fontList = new ArrayList<Font>();
-fontList.add(new Font("Arial", Font.HANGING_BASELINE, 20));//可以设置斜体之类的
-fontList.add(new Font("Courier", Font.BOLD, 20));	
 
+// 随机产生155条干扰线，使图象中的认证码不易被其它程序探测到
+g.setColor(getRandColor(160,200));
+for (int i=0;i<10;i++)
+{
+         int x = random.nextInt(width);
+         int y = random.nextInt(height);
+         int xl = random.nextInt(12);
+         int yl = random.nextInt(12);
+         g.drawLine(x,y,x+xl,y+yl);
+}
 
-//--------------添加背景-------------
-//设置背景渐进效果 以及颜色 form为开始颜色，to为结束颜色
-//GradiatedBackgroundProducer gbp=new GradiatedBackgroundProducer();
-//gbp.setFromColor(Color.yellow);
-//gbp.setToColor(Color.red);
-//无渐进效果，只是填充背景颜色
-FlatColorBackgroundProducer  gbp=new FlatColorBackgroundProducer(Color.white);
-//加入网纹--一般不会用
-//SquigglesBackgroundProducer  sbp=new SquigglesBackgroundProducer();
-//
-
-//		加入多种颜色后会随机显示 字体空心
-		List<Color> colorList=new ArrayList<Color>();
-		colorList.add(Color.BLACK);
-		colorList.add(Color.blue);
-		colorList.add(Color.red);
-
-		ColoredEdgesWordRenderer cwr= new ColoredEdgesWordRenderer(colorList,fontList);
-builder.addText(cwr);
-
-//
-//		WordRenderer wr=dwr;
-//		//增加文本，默认为5个随机字符.
-//		if(_text==null){
-//			   builder.addText();
-//		}else{
-//			   String[]ts=_text.split(",");
-//			   for(int i=0;i<ts.length;i++){
-//				   String[] ts1=ts[i].split(":");
-//				   if("chinese".equals(ts1[0])){
-//					   builder.addText(new ChineseTextProducer(Integer.parseInt(ts1[1])),wr);
-//				   }else if("number".equals(ts1[0])){
-//					   //这里没有0和1是为了避免歧义 和字母I和O
-//					   char[] numberChar = new char[] { '2', '3', '4', '5', '6', '7', '8' };
-//					   builder.addText(new DefaultTextProducer(Integer.parseInt(ts1[1]),numberChar),wr);
-//				   }else if("word".equals(ts1[0])){
-//					   //原理同上
-//					   char[] numberChar = new char[] {'a', 'b', 'c', 'd',
-//					            'e', 'f', 'g', 'h', 'k', 'm', 'n', 'p', 'r', 'w', 'x', 'y' };
-//					   builder.addText(new DefaultTextProducer(Integer.parseInt(ts1[1]),numberChar),wr);
-//				   }else{
-//					   builder.addText(new DefaultTextProducer(Integer.parseInt(ts1[1])),wr);
-//				   }
-//			   }
-//			   
-//		}
-
-builder.addBackground(gbp);
-//---------装饰字体---------------
-   // 字体边框齿轮效果 默认是3
-builder.gimp(new BlockGimpyRenderer(1));
-//波纹渲染 相当于加粗
-//builder.gimp(new RippleGimpyRenderer());
-//修剪--一般不会用
-//builder.gimp(new ShearGimpyRenderer(Color.red));
-//加网--第一个参数是横线颜色，第二个参数是竖线颜色
-//builder.gimp(new FishEyeGimpyRenderer(Color.red,Color.yellow));
-//加入阴影效果 默认3，75 
-//builder.gimp(new DropShadowGimpyRenderer());
-//创建对象
-Captcha captcha =  builder .build();
+// 取随机产生的认证码(4位数字)
+String sRand="";
+for (int i=0;i<4;i++){
+     String rand=String.valueOf(random.nextInt(10));
+     sRand+=rand;
+     // 将认证码显示到图象中
+     g.setColor(new Color(20+random.nextInt(110),20+random.nextInt(110),20+random.nextInt(110)));// 调用函数出来的颜色相同，可能是因为种子太接近，所以只能直接生成
+     g.drawString(rand,13*i+6,16);
+}
 
 // 将认证码存入SESSION
-System.out.println("Answer::" + captcha.getAnswer());
-session.setAttribute("rand",captcha.getAnswer());
+session.setAttribute("rand",sRand);
+
+System.out.println("Rand in Image:::::" + session.getAttribute("rand"));
+
+
+// 图象生效
+g.dispose();
+
 // 输出图象到页面
-CaptchaServletUtil.writeImage(response, captcha.getImage()); 
+ImageIO.write(image, "JPEG", response.getOutputStream());
+
 out.clear();
 out = pageContext.pushBody();
+
+//将认证码存入SESSION
+session.setAttribute("rand",sRand);
+
 %>

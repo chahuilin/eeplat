@@ -234,8 +234,8 @@ table.tablesorter {
 }
 
 table.tablesorter tr{
-	height:20px;
-		vertical-align:middle;
+	height:25px;
+	vertical-align:middle;
 }
 table.tablesorter thead tr th,table.tablesorter tr td.title{
 		background-color:#e6EEEE;
@@ -600,10 +600,6 @@ vertical-align: middle;
 	margin: 4px 0px 0px 0px;
 }
 
-
-
-
-
 .star_4_s {
 	width: 75px;
 	height: 13px;
@@ -655,4 +651,7 @@ dd {
 	display: block;
 	-webkit-margin-start: 40px;
 }
-	
+
+.ui-tabs .ui-tabs-panel{
+	padding: 0px;	
+}

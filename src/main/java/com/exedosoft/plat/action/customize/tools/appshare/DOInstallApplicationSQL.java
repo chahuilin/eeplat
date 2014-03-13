@@ -7,6 +7,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.json.JSONArray;
 
 import com.exedosoft.plat.CacheFactory;
@@ -25,6 +27,8 @@ import com.exedosoft.tenant.TenancyValues;
 
 public class DOInstallApplicationSQL extends DOAbstractAction {
 
+	
+	private static Log log = LogFactory.getLog(DOInstallApplicationSQL.class);
 	/**
 	 * 
 	 */
@@ -33,6 +37,7 @@ public class DOInstallApplicationSQL extends DOAbstractAction {
 	@Override
 	public String excute() throws ExedoException {
 
+		log.info("Enter DOInstallApplicationSQL!" );
 		
 		String shareid = DOGlobals.getInstance().getSessoinContext()
 				.getGlobal().getValue("ShareID");
@@ -72,6 +77,8 @@ public class DOInstallApplicationSQL extends DOAbstractAction {
 			
 			OSSUpload.downloadFile("appsmarket", xmlPath, fileName);
 
+			log.info("AppShare FileName::" + fileName);
+			
 			DOImportSQL.importSQL(fileName);
 
 		
@@ -136,6 +143,7 @@ public class DOInstallApplicationSQL extends DOAbstractAction {
 		StringBuffer fileName = new StringBuffer(s).append("appshare/").append(
 				xmlPath);
 		
+
 
 		return fileName.toString();
 	}

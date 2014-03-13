@@ -58,7 +58,7 @@ html,body{
 		<input type="text" name="user_email" id="user_email" class="input" size="20" tabindex="10" /></label>
 	</p>
 	<p>
-		<label><%=I18n.instance().get("Paasword")%></label><br />
+		<label><%=I18n.instance().get("Paasword")%>        </label><br />
 		<input type="password" name="password" id="password" class="input"  size="20" tabindex="20" /></label>
 	</p>
 	<p class="forgetmenot">
@@ -77,10 +77,12 @@ html,body{
         
 	</p>
 
-
 </form>
-
+	<div align="center"><br/><a align="center" href="forgetpwd.pml?isApp=true">忘记密码</a> <div>
 </div>
+
+
+
 </body>
 <script language="javascript">
 

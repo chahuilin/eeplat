@@ -42,10 +42,10 @@ public class OSSObjectSample {
     public static void main(String[] args)throws Exception {
 
 
-    	String bucketName = "zhiliaoshudasai";
-        String key = "评审资料.zip";
+    	String bucketName = "eeplatfile";
+        String key = "eeplat.war";
 
-        String uploadFilePath = "E:/work/doc/幼儿园/阿里云参赛/评审资料/评审资料.zip";
+        String uploadFilePath = "E:/eeplat.war";
   //      String downloadFilePath = "d:/temp/网站首页2.png";
 
         // 可以使用ClientConfiguration对象设置代理服务器、最大重试次数等参数。

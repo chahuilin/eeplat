@@ -11,11 +11,13 @@
  </div>
 <script>
 	//加载头部
-	<#if model.resource.resourcePath?exists>
+	<#if (model.resource.resourcePath)?exists>
 	    var theUrl = "";
 		if(globalURL.indexOf( '/web/default/' ) != -1){
 			  theUrl = "/";
 		}
 		$("#outDv").empty().load(theUrl +  "${model.resource.resourcePath}?" + Math.random());
+	<#elseif defaultheader?exists>
+		$("#outDv").empty().load("${defaultheader}?"  + Math.random());
 	</#if>
 </script>

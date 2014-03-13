@@ -30,6 +30,12 @@ public class LayOutHeader extends TPaneTemplate {
 		if(url!=null){
 			data.put("logoheader", url);
 		}
+		
+		DOResource   drs = DAOUtil.INSTANCE().getBySql(DOResource.class,"select * from do_resource where resourceName like 'jspheader_%'");
+		if(drs!=null){
+			data.put("defaultheader", drs.getResourcePath());
+		}
+
 		return data;
 	}
 	
